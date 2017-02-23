@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE testNG SYSTEM "./testng-1.0.dtd" >
+<!-- thread-count="1" 为同时执行的线程数 parallel="tests" 为同时执行的测试级别， 可配置为false,methods，tests，classes，instances -->
+<suite name="HttpTestUtil" thread-count="1" parallel="false">
+
+	<test name="HttpTestUtil">
+		<classes>
+			<class name="com.frenlan.testcase.ApiTestDemo"></class>
+			<!-- <class name="com.frenlan.testcase.LoginActionTest"></class>
+			<class name="com.frenlan.testcase.RegisterActionTest"></class> -->
+		</classes>
+	</test>
+</suite>

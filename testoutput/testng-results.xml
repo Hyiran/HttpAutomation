@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="HttpTestUtil" duration-ms="609" started-at="2017-02-17T10:05:26Z" finished-at="2017-02-17T10:05:27Z">
+    <groups>
+      <group name="ApiTestDemo">
+        <method signature="ApiTestDemo.testLogin()[pri:0, instance:com.frenlan.testcase.ApiTestDemo@6eebc39e]" name="testLogin" class="com.frenlan.testcase.ApiTestDemo"/>
+      </group> <!-- ApiTestDemo -->
+    </groups>
+    <test name="HttpTestUtil" duration-ms="609" started-at="2017-02-17T10:05:26Z" finished-at="2017-02-17T10:05:27Z">
+      <class name="com.frenlan.testcase.ApiTestDemo">
+        <test-method status="PASS" signature="beforeClassTest()[pri:0, instance:com.frenlan.testcase.ApiTestDemo@6eebc39e]" name="beforeClassTest" is-config="true" duration-ms="50" started-at="2017-02-17T18:05:26Z" finished-at="2017-02-17T18:05:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClassTest -->
+        <test-method status="PASS" signature="testLogin()[pri:0, instance:com.frenlan.testcase.ApiTestDemo@6eebc39e]" name="testLogin" duration-ms="533" started-at="2017-02-17T18:05:26Z" description="Api²âÊÔ" finished-at="2017-02-17T18:05:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method status="PASS" signature="afterClassTest()[pri:0, instance:com.frenlan.testcase.ApiTestDemo@6eebc39e]" name="afterClassTest" is-config="true" duration-ms="1" started-at="2017-02-17T18:05:27Z" finished-at="2017-02-17T18:05:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClassTest -->
+      </class> <!-- com.frenlan.testcase.ApiTestDemo -->
+    </test> <!-- HttpTestUtil -->
+  </suite> <!-- HttpTestUtil -->
+</testng-results>

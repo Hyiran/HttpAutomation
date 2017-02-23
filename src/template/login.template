@@ -1,0 +1,8 @@
+{
+    "request":{
+	"user":{
+        "email":"%1$s",
+        "password":"%2$s"
+	}
+    }       
+}

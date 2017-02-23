@@ -1,0 +1,14 @@
+{
+    "request":{
+	"user":{
+		"email":"%1$s",
+		"password":"%2$s",
+		"authuser":{
+			"uid":"%3$s",
+			"sns":"twitter",
+			"accesstoken":"kasjdfljasdfwekrjasdfskdhfkl",
+			"authtime":"%4$s"
+		}
+	}
+    }       
+}

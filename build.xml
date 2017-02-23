@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="HttpAutomation" default="run" basedir=".">
+
+	<path id="libpath">
+		<fileset dir="libs">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<!-- COMPILE TESTS -->
+	<target name="compile">
+		<echo message="compiling tests" />
+		<delete dir="classes" />
+		<mkdir dir="classes" />
+		<javac encoding="UTF-8" debug="true" classpathref="libpath"
+			srcdir="src" destdir="classes" />
+	</target>
+
+	<!-- COPY FILES -->
+	<target name="copy">
+		<echo message="copy files" />
+		<copy todir="classes">
+			<fileset dir="src">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="clean">
+		<echo message="delete and mkdir" />
+		<delete dir="TestReport" />
+		<delete dir="log" />
+		<mkdir dir="TestReport" />
+		<mkdir dir="log" />
+	</target>
+
+	<taskdef name="testng" classname="com.beust.testng.TestNGAntTask"
+		classpathref="libpath" />
+
+	<path id="runpath">
+		<path refid="libpath" />
+		<pathelement location="classes" />
+	</path>
+
+	<!-- RUN TESTS -->
+	<target name="run.testng.HTMLReporter">
+		<echo message="run.testng.HTMLReporter" />
+
+		<testng classpathref="runpath" outputDir="TestReport"
+			haltonfailure="false">
+			<xmlfileset dir="." includes="testng.xml" />
+			<!--xmlfileset dir="." includes="testng-failed.xml" / -->
+		</testng>
+	</target>
+
+
+	<target name="run.reportng.HTMLReporter">
+		<echo message="run.reportng.HTMLReporter" />
+
+		<testng classpathref="runpath" outputDir="TestReport"
+			useDefaultListeners="false"
+			listeners="org.uncommons.reportng.HTMLReporter,org.testng.reporters.FailedReporter">
+			<xmlfileset dir="." includes="testng.xml" />
+			<!--xmlfileset dir="." includes="testng-failed.xml" / -->
+			<sysproperty key="org.uncommons.reportng.title" value="TestReport" />
+			<sysproperty key="org.uncommons.reportng.stylesheet"
+				value="custom.css" />
+			<sysproperty key="org.uncommons.reportng.velocity-log"
+				value="false" />
+		</testng>
+
+	</target>
+
+	<target name="run.reportng.JUnitXMLReporter">
+		<echo message="run.reportng.JUnitXMLReporter" />
+
+		<testng classpathref="runpath" outputDir="TestReport"
+			useDefaultListeners="false"
+			listeners="org.uncommons.reportng.JUnitXMLReporter,org.testng.reporters.FailedReporter">
+			<xmlfileset dir="." includes="testng.xml" />
+			<!--xmlfileset dir="." includes="testng-failed.xml" / -->
+		</testng>
+
+		<echo message="junitreport start" />
+		<junitreport todir="TestReport">
+			<fileset dir="TestReport/xml">
+				<include name="*.xml" />
+			</fileset>
+			<report format="frames" todir="TestReport" />
+		</junitreport>
+		<!-- delete dir="TestReport/xml" /> -->
+		<echo message="junitreport end" />
+	</target>
+
+	<target name="run" description="Run Test">
+		<sequential>
+			<antcall target="compile" />
+			<antcall target="copy" />
+			<antcall target="clean" />
+			<!--antcall target="run.testng.HTMLReporter" / -->
+			<antcall target="run.reportng.HTMLReporter" />
+			<!--antcall target="run.reportng.JUnitXMLReporter" / -->
+		</sequential>
+	</target>
+</project>
